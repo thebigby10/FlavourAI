@@ -30,3 +30,4 @@
 - Get real-time answers like:
   - "How can I make my smoothie taste sweeter without sugar?"
   - "What’s a unique dessert using coconut?"
+
