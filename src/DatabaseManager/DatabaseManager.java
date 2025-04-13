@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 public class DatabaseManager {
     String DATABASE_NAME;
-    String DB_URL;]
+    String DB_URL;
     String DB_USERNAME;
     String DB_PASSWORD;
 
@@ -30,7 +30,7 @@ public class DatabaseManager {
 
             // Create the database
             statement.executeUpdate(createDbQuery);
-            System.out.println("Database created: " + DATABASE_NAME);
+            System.out.println(" Database created: " + DATABASE_NAME);
 
             // Now, use the newly created database
             try (Connection dbConnection = DriverManager.getConnection(DB_URL + DATABASE_NAME, DB_USERNAME, DB_PASSWORD)) {
@@ -38,10 +38,10 @@ public class DatabaseManager {
                 statement.executeUpdate(createTableQuery);
                 System.out.println("Users table created.");
             }
-
         } catch (SQLException e) {
             //e.printStackTrace();
         }
+        System.out.println("Failed to create database");
     }
     public boolean databaseExists() {
         String DB_URL = "jdbc:mysql://localhost:3306/"+DATABASE_NAME;

@@ -6,8 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class UserLogin {
-    public UserLogin(String username, String password) {
+public class RegistrationSystem {
+    public RegistrationSystem(String username, String password) {
         
     }
 
