@@ -27,7 +27,13 @@ public class ViewProfile {
 
         for (Recipe recipe : recipes) {
             recipeListPanel.addComponent(new Label(recipe.name));
-            Button detailsButton = new Button("Details", () -> showDetailsPopup(textGUI, recipe));
+            Button detailsButton = new Button("Details", new Runnable() {
+                @Override
+                public void run() {
+                    recipeListWindow.close();
+                    showDetailsPopup(textGUI, recipe);
+                }
+            });
             recipeListPanel.addComponent(detailsButton);
         }
 
@@ -100,6 +106,8 @@ public class ViewProfile {
             fetchAllRecipes();
             MessageDialog.showMessageDialog(textGUI, "Deleted", "Recipe deleted.");
             detailWindow.close();
+            ViewProfile viewProfileWindow = new ViewProfile();
+            viewProfileWindow.showRecipesList(textGUI);
         }));
 
         panel.addComponent(new Button("Back", new Runnable() {
