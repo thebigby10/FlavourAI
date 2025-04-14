@@ -18,21 +18,23 @@ import UserManager.LoginUI.*;
 
 
 public class App {
-    // public static void main(String[] args) {
-    //     System.out.println("Welcome to FlavourAI!");
+    public static void dbInit() {
+        System.out.println("Welcome to FlavourAI!");
 
-    //     // DatabaseManager dbmanager = new DatabaseManager("flavor_db", "thebigby01", "~cc++404");
+        DatabaseManager dbmanager = new DatabaseManager("flavor_db", "admin", "admin");
 
-    //     // if(dbmanager.databaseExists()){
-    //     //     System.out.println("Database exists");
-    //     // }
-    //     // else{
-    //     //     System.out.println("Database does not exist");
-    //     //     dbmanager.createDatabase();
-    //     // }
+        if(dbmanager.databaseExists()){
+            System.out.println("Database exists");
+        }
+        else{
+            System.out.println("Database does not exist");
+            dbmanager.createDatabase();
+        }
         
-    // }
+    }
     public static void main(String[] args) throws Exception {
+        dbInit();
+        // return;
         // Create the terminal using DefaultTerminalFactory
         Terminal terminal = new DefaultTerminalFactory().createTerminal();
         TerminalScreen screen = new TerminalScreen(terminal);

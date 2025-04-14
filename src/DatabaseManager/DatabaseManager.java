@@ -42,6 +42,7 @@ public class DatabaseManager {
             //e.printStackTrace();
         }
         System.out.println("Failed to create database");
+        System.exit(0);
     }
     public boolean databaseExists() {
         String DB_URL = "jdbc:mysql://localhost:3306/"+DATABASE_NAME;

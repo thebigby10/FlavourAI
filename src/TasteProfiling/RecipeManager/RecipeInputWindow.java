@@ -1,4 +1,5 @@
 package TasteProfiling.RecipeManager;
+import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.gui2.*;
 import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.terminal.Terminal;
@@ -34,6 +35,7 @@ public class RecipeInputWindow {
         // Preparation Instructions
         recipePanel.addComponent(new Label("Preparation Instructions:"));
         TextBox preparationField = new TextBox();
+        preparationField.setSize(new TerminalSize(40, 5));
         recipePanel.addComponent(preparationField);
 
         // Serving Size
