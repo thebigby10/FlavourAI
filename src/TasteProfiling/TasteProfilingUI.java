@@ -46,9 +46,9 @@ public class TasteProfilingUI {
         Button rateDishButton = new Button("Rate Dish", new Runnable() {
             @Override
             public void run() {
-                // Add the action for Flavour Pairing Predictor
-                System.out.println("Navigating to Flavour Pairing Predictor...");
                 mainMenuWindow.close();
+                TasteProfilingUI tasteProfilingUI = new TasteProfilingUI();
+                tasteProfilingUI.showTasteProfilingUI(textGUI);
             }
         });
 
