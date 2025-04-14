@@ -97,6 +97,7 @@ public class ViewProfile {
 
         panel.addComponent(new Button("Delete", () -> {
             deleteRecipe(recipe.id);
+            fetchAllRecipes();
             MessageDialog.showMessageDialog(textGUI, "Deleted", "Recipe deleted.");
             detailWindow.close();
         }));
