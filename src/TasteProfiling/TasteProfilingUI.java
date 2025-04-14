@@ -9,6 +9,7 @@ import com.googlecode.lanterna.gui2.Window;
 import com.googlecode.lanterna.gui2.WindowBasedTextGUI;
 
 import TasteProfiling.AddRecipe.AddRecipe;
+import TasteProfiling.ViewProfile.ViewProfile;
 
 public class TasteProfilingUI {
     public void showTasteProfilingUI(WindowBasedTextGUI textGUI) {
@@ -36,9 +37,9 @@ public class TasteProfilingUI {
         Button viewProfileButton = new Button("View Your Taste Profile", new Runnable() {
             @Override
             public void run() {
-                // Add the action for AI-Powered Recipe Generator
-                System.out.println("Navigating to AI-Powered Recipe Generator...");
                 mainMenuWindow.close();
+                ViewProfile viewProfileWindow = new ViewProfile();
+                viewProfileWindow.showRecipesList(textGUI);
             }
         });
 
