@@ -130,6 +130,7 @@ public class AddRecipe {
                 // Execute the insert query
                 int rowsInserted = statement.executeUpdate();
                 if (rowsInserted > 0) {
+                    showSuccessPopup(textGUI);
                     recipeWindow.close();
                     TasteProfilingUI tasteProfilingUI = new TasteProfilingUI();
                     tasteProfilingUI.showTasteProfilingUI(textGUI);
@@ -159,6 +160,23 @@ public class AddRecipe {
 
         // Add window to the GUI and wait for user interaction
         textGUI.addWindowAndWait(recipeWindow);
+    }
+
+    private void showSuccessPopup(WindowBasedTextGUI textGUI) {
+        Window successWindow = new BasicWindow("Success!");
+        Panel successPanel = new Panel();
+        successPanel.setLayoutManager(new GridLayout(1));
+        Label successLabel = new Label("Recipe added successfully!");
+        successPanel.addComponent(successLabel);
+        Button okButton = new Button("OK", new Runnable() {
+            @Override
+            public void run() {
+                successWindow.close();
+            }
+        });
+        successPanel.addComponent(okButton);
+        successWindow.setComponent(successPanel);
+        textGUI.addWindowAndWait(successWindow);
     }
 
     // Helper method to show input dialog with pre-filled text
