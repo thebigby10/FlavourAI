@@ -38,7 +38,7 @@ public class DatabaseManager {
         } catch (SQLException e) {
             // e.printStackTrace();
             System.out.println("Failed to create database");
-            System.exit(0);
+            // System.exit(0);
         }
         
     }

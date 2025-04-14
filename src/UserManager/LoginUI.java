@@ -12,6 +12,7 @@ import com.googlecode.lanterna.input.KeyType;
 
 public class LoginUI {
     public void showLogin(WindowBasedTextGUI textGUI) {
+        // System.out.println("indie showLogin...");
         // Create a window for the login screen
         Window loginWindow = new BasicWindow("Login");
 
@@ -41,11 +42,14 @@ public class LoginUI {
 
                 // Check if credentials are valid using the LoginSystem
                 if (loginSystem.login(username, password)) {
+                    System.out.println("Login successful!");
+                    UserInfo.username = username;
                     // If login is successful, change to the main menu
                     loginWindow.close();  // Close the login window
                     MainMenuUI mainmenu = new MainMenuUI();
                     mainmenu.showMainMenu(textGUI); // Show the main menu window
                 } else {
+                    System.out.println("Invalid username or password.");
                     loginResult.setText("Invalid username or password.");
                 }
             }

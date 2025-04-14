@@ -34,6 +34,7 @@ public class App {
     }
     public static void main(String[] args) throws Exception {
         dbInit();
+        System.out.println("Welcome to FlavourAI!");
         // return;
         // Create the terminal using DefaultTerminalFactory
         Terminal terminal = new DefaultTerminalFactory().createTerminal();
