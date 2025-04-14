@@ -9,6 +9,7 @@ import com.googlecode.lanterna.gui2.Window;
 import com.googlecode.lanterna.gui2.WindowBasedTextGUI;
 
 import TasteProfiling.AddRecipe.AddRecipe;
+import TasteProfiling.RateRecipe.RateRecipe;
 import TasteProfiling.ViewProfile.ViewProfile;
 
 public class TasteProfilingUI {
@@ -47,8 +48,8 @@ public class TasteProfilingUI {
             @Override
             public void run() {
                 mainMenuWindow.close();
-                TasteProfilingUI tasteProfilingUI = new TasteProfilingUI();
-                tasteProfilingUI.showTasteProfilingUI(textGUI);
+                RateRecipe rateRecipe = new RateRecipe();
+                rateRecipe.showRatingUI(textGUI);
             }
         });
 
