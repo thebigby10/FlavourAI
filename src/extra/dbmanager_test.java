@@ -1,4 +1,4 @@
-package UserManager;
+package extra;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,13 +8,11 @@ import java.sql.Statement;
 
 import DatabaseManager.DatabaseManager;
 
-public class LoginSystem {
-    // Simulate a login check with hardcoded credentials
-    private String validUsername = "";
-    private String validPassword = "";
-
-    // Method to check if the login credentials are correct
-    public boolean login(String username, String password) {
+public class dbmanager_test {
+    
+    public static void main(String[] args) {
+        String username = "admin";
+        String password = "admin";
         // return true;
         String DATABASE_NAME = "flavor_db";
         String DB_URL = "jdbc:mysql://localhost:3306/"+DATABASE_NAME;
@@ -26,21 +24,36 @@ public class LoginSystem {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
             if(resultSet.next()) {
-                return true;
+                System.out.println("true");
             }
             else {
-                return false;
+                System.out.println("false");
             }
         }
         catch(Exception e) {
             System.out.println("Error in login");
-            return false;
         }
-        
     }
+    // public boolean login(String username, String password) {
+    //     String username = "admin";
+    //     String password = "admin";
+    //    String query = "select * from users where username = "+username+" and password = "+password;
+    //     DatabaseManager dbmanager = new DatabaseManager();
+    //     ResultSet resultSet = (ResultSet) dbmanager.executeQuery(query);
+    //     try{
+    //         if(resultSet.next()) {
+    //             System.out.println("Login successful!");
+    //         }
+    //         else {
+    //             System.out.println("Invalid username or password.");
+    //         }
+    //     }
+    //     catch(Exception e) {
+    //         System.out.println("Error in login");
+    //     }
+    // }
 
-    // Placeholder method for registration (can be expanded later)
-    public String register(String username, String password) {
+    public static String register(String username, String password) {
         String DATABASE_NAME = "flavor_db";
         String DB_URL = "jdbc:mysql://localhost:3306/"+DATABASE_NAME;
         String DB_USERNAME = "admin";

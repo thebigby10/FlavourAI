@@ -8,12 +8,12 @@ import com.googlecode.lanterna.gui2.Panel;
 import com.googlecode.lanterna.gui2.Window;
 import com.googlecode.lanterna.gui2.WindowBasedTextGUI;
 
-import TasteProfiling.RecipeManager.RecipeInputWindow;
+import TasteProfiling.AddRecipe.AddRecipe;
 
 public class TasteProfilingUI {
     public void showTasteProfilingUI(WindowBasedTextGUI textGUI) {
         // Create a window for the main menu
-        Window mainMenuWindow = new BasicWindow("Main Menu");
+        Window mainMenuWindow = new BasicWindow("Taste Profile");
 
         // Create a panel to hold the welcome message and buttons
         Panel mainMenuPanel = new Panel();
@@ -28,7 +28,7 @@ public class TasteProfilingUI {
             @Override
             public void run() {
                 mainMenuWindow.close();
-                RecipeInputWindow recipeInputWindow = new RecipeInputWindow();
+                AddRecipe recipeInputWindow = new AddRecipe();
                 recipeInputWindow.showRecipeInputWindow(textGUI);
             }
         });
