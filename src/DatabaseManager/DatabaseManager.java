@@ -19,6 +19,7 @@ public class DatabaseManager {
         this.DB_PASSWORD = DB_PASSWORD;
     }
 
+    // currently does not work. needs to be fixed
     public void createDatabase() {
         String createDbQuery = "CREATE DATABASE " + DATABASE_NAME;
         String createTableQuery = "CREATE TABLE " + DATABASE_NAME + ".users (" +

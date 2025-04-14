@@ -20,8 +20,8 @@ import UserManager.LoginUI.*;
 public class App {
     public static void dbInit() {
         System.out.println("Welcome to FlavourAI!");
-
-        DatabaseManager dbmanager = new DatabaseManager("flavor_db", "admin", "admin");
+        
+        DatabaseManager dbmanager = new DatabaseManager("flavorai_db", "admin", "admin");
 
         if(dbmanager.databaseExists()){
             System.out.println("Database exists");
