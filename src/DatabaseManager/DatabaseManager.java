@@ -23,6 +23,7 @@ public class DatabaseManager {
 
         String createRecipeTableQuery = "CREATE TABLE IF NOT EXISTS "+DATABASE_NAME+".Recipes ("
                 + "id INT AUTO_INCREMENT PRIMARY KEY, "
+                + "username VARCHAR(50) NOT NULL, "
                 + "recipe_name VARCHAR(255) NOT NULL, "
                 + "category VARCHAR(100), " // Category column
                 + "ingredients TEXT, " // Ingredients column (comma-separated list)

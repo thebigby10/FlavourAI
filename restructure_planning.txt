@@ -1,0 +1,22 @@
+flavourai/
+├── App.java
+├── config/
+│   └── DBConfig.java
+├── dao/
+│   ├── RecipeDAO.java
+│   └── UserDAO.java
+├── model/
+│   ├── Recipe.java
+│   └── User.java
+├── service/
+│   ├── AuthService.java
+│   └── RecipeService.java
+├── ui/
+│   ├── LoginUI.java
+│   ├── MainMenuUI.java
+│   ├── TasteProfileUI.java
+│   ├── AddRecipeUI.java
+│   ├── ViewProfileUI.java
+│   └── RateRecipeUI.java
+└── util/
+    └── DialogUtil.java

@@ -9,6 +9,7 @@ import com.googlecode.lanterna.gui2.*;
 import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.terminal.Terminal;
 import TasteProfiling.TasteProfilingUI;
+import UserManager.UserInfo;
 
 public class AddRecipe {
 
@@ -113,19 +114,20 @@ public class AddRecipe {
                 String DB_URL = "jdbc:mysql://localhost:3306/" + DATABASE_NAME;
                 String DB_USERNAME = "admin";
                 String DB_PASSWORD = "admin";
-                String sql = "INSERT INTO Recipes (recipe_name, category, ingredients, preparation_instruction, serving_size, cooking_time, personal_note) "
-                   + "VALUES (?, ?, ?, ?, ?, ?, ?)";
+                String sql = "INSERT INTO Recipes (recipe_name, username, category, ingredients, preparation_instruction, serving_size, cooking_time, personal_note) "
+                   + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
                 try (Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD); 
                     PreparedStatement statement = connection.prepareStatement(sql)) {
 
                 // Set parameters for the prepared statement
                 statement.setString(1, recipeName);
-                statement.setString(2, recipeCategory);
-                statement.setString(3, ingredients);
-                statement.setString(4, preparationInstructions);
-                statement.setString(5, servingSize);
-                statement.setString(6, cookingTime);
-                statement.setString(7, personalNotes);
+                statement.setString(2, UserInfo.username);
+                statement.setString(3, recipeCategory);
+                statement.setString(4, ingredients);
+                statement.setString(5, preparationInstructions);
+                statement.setString(6, servingSize);
+                statement.setString(7, cookingTime);
+                statement.setString(8, personalNotes);
 
                 // Execute the insert query
                 int rowsInserted = statement.executeUpdate();

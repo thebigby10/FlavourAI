@@ -3,6 +3,7 @@ package TasteProfiling.RateRecipe;
 import com.googlecode.lanterna.gui2.*;
 import com.googlecode.lanterna.gui2.dialogs.MessageDialog;
 import TasteProfiling.TasteProfilingUI;
+import UserManager.UserInfo;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -93,7 +94,7 @@ public class RateRecipe {
 
     private List<Recipe> fetchAllRecipes() {
         List<Recipe> recipes = new ArrayList<>();
-        String query = "SELECT * FROM Recipes";
+        String query = "SELECT * FROM Recipes where username='"+UserInfo.username+"'";
 
         try (Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
              Statement statement = connection.createStatement();

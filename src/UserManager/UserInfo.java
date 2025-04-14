@@ -1,5 +1,5 @@
 package UserManager;
 
 public class UserInfo {
-    static String username;
+    public static String username;
 }
