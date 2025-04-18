@@ -9,6 +9,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import TasteProfiling.Recipe;
+
 public class RateRecipe {
 
     private final String DATABASE_NAME = "flavor_db";
@@ -120,30 +122,5 @@ public class RateRecipe {
         }
 
         return recipes;
-    }
-
-    private static class Recipe {
-        int id;
-        String name;
-        String category;
-        String ingredients;
-        String instructions;
-        String servingSize;
-        String cookingTime;
-        String notes;
-        String rating;
-
-        public Recipe(int id, String name, String category, String ingredients, String instructions,
-                      String servingSize, String cookingTime, String notes, String rating) {
-            this.id = id;
-            this.name = name;
-            this.category = category;
-            this.ingredients = ingredients;
-            this.instructions = instructions;
-            this.servingSize = servingSize;
-            this.cookingTime = cookingTime;
-            this.notes = notes;
-            this.rating = rating;
-        }
     }
 }

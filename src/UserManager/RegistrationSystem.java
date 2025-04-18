@@ -5,8 +5,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class RegistrationSystem {
+
     public RegistrationSystem(String username, String password) {
         
     }
@@ -15,7 +17,7 @@ public class RegistrationSystem {
         // SQL query to check if the user exists with the given username and password
         String query = "SELECT * FROM users WHERE username = ? AND password = ?";
         
-        try (Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/flavor_db", "admin", "admin");  
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
             // Set the username and password parameters in the query
@@ -39,7 +41,7 @@ public class RegistrationSystem {
     private static boolean databaseExists(String DATABASE_NAME, String DB_URL, String DB_USERNAME, String DB_PASSWORD) {
         String checkDbQuery = "SHOW DATABASES LIKE '" + DATABASE_NAME + "'";
 
-        try (Connection connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/flavor_db", "admin", "admin");
              Statement statement = connection.createStatement()) {
 
             ResultSet resultSet = statement.executeQuery(checkDbQuery);
