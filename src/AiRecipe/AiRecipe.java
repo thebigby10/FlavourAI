@@ -1,4 +1,4 @@
-package MainMenu;
+package AiRecipe;
 
 import com.googlecode.lanterna.gui2.BasicWindow;
 import com.googlecode.lanterna.gui2.Button;
@@ -8,62 +8,48 @@ import com.googlecode.lanterna.gui2.Panel;
 import com.googlecode.lanterna.gui2.Window;
 import com.googlecode.lanterna.gui2.WindowBasedTextGUI;
 
-import AiRecipe.AiRecipe;
-import Chatbot.ChatbotUI;
-import TasteProfiling.*;
+import TasteProfiling.AddRecipe.AddRecipe;
+import TasteProfiling.RateRecipe.RateRecipe;
+import TasteProfiling.ViewProfile.ViewProfile;
 
-public class MainMenuUI {
-    // Method to show the main menu window
-    public void showMainMenu(WindowBasedTextGUI textGUI) {
+public class AiRecipe {
+    public void showTasteProfilingUI(WindowBasedTextGUI textGUI) {
         // Create a window for the main menu
-        Window mainMenuWindow = new BasicWindow("Main Menu");
+        Window mainMenuWindow = new BasicWindow("AI-Powered Recipe Generator");
 
         // Create a panel to hold the welcome message and buttons
         Panel mainMenuPanel = new Panel();
         mainMenuPanel.setLayoutManager(new GridLayout(1));  // 1 column layout
 
         // Add a label with the "Welcome to FlavorAI!" message
-        Label welcomeLabel = new Label("Welcome to FlavorAI!");
+        Label welcomeLabel = new Label("AI-Powered Recipe Discovery.");
         mainMenuPanel.addComponent(welcomeLabel);
 
-        // Add a random recipe button
-        Button randomRecipeButton = new Button("Explore a Dish", new Runnable() {
-            @Override
-            public void run() {
-                
-            }
-        });
-
         // Add the new menu buttons
-        Button personalTasteButton = new Button("Personal Taste Profiling.", new Runnable() {
+        Button addRecipeButton = new Button("AI-Powered Custom Recipe", new Runnable() {
             @Override
             public void run() {
                 mainMenuWindow.close();
-                TasteProfiling tasteProfilingUI = new TasteProfiling();
-                tasteProfilingUI.showTasteProfilingUI(textGUI);
+                AddRecipe recipeInputWindow = new AddRecipe();
+                recipeInputWindow.showRecipeInputWindow(textGUI);
             }
         });
 
-        Button aiRecipeButton = new Button("AI-Powered Recipe Discovery.", new Runnable() {
+        Button viewProfileButton = new Button("Browse by Category – Your Taste, Your Way", new Runnable() {
             @Override
             public void run() {
                 mainMenuWindow.close();
-                AiRecipe aiRecipe = new AiRecipe();
-                aiRecipe.showTasteProfilingUI(textGUI);
+                ViewProfile viewProfileWindow = new ViewProfile();
+                viewProfileWindow.showRecipesList(textGUI);
             }
         });
 
-        Button interactiveModeButton = new Button("Interactive Mode (Chat with AI Chef)", new Runnable() {
+        Button rateDishButton = new Button("Find Recipes by Ingredient", new Runnable() {
             @Override
             public void run() {
                 mainMenuWindow.close();
-                ChatbotUI chatbotUI = new ChatbotUI();
-                try{
-                    chatbotUI.startChatbot();
-                }
-                catch (Exception e){
-                    e.printStackTrace();
-                }
+                RateRecipe rateRecipe = new RateRecipe();
+                rateRecipe.showRatingUI(textGUI);
             }
         });
 
@@ -76,10 +62,9 @@ public class MainMenuUI {
         });
 
         // Add all the buttons to the panel
-        mainMenuPanel.addComponent(randomRecipeButton);
-        mainMenuPanel.addComponent(personalTasteButton);
-        mainMenuPanel.addComponent(aiRecipeButton);
-        mainMenuPanel.addComponent(interactiveModeButton);
+        mainMenuPanel.addComponent(addRecipeButton);
+        mainMenuPanel.addComponent(viewProfileButton);
+        mainMenuPanel.addComponent(rateDishButton);
         mainMenuPanel.addComponent(exitButton);
 
         // Set the panel as the content of the main menu window

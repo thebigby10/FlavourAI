@@ -2,7 +2,7 @@ package TasteProfiling.RateRecipe;
 
 import com.googlecode.lanterna.gui2.*;
 import com.googlecode.lanterna.gui2.dialogs.MessageDialog;
-import TasteProfiling.TasteProfilingUI;
+import TasteProfiling.TasteProfiling;
 import UserManager.UserInfo;
 
 import java.sql.*;
@@ -35,7 +35,7 @@ public class RateRecipe {
 
         Button backButton = new Button("Back", () -> {
             recipeListWindow.close();
-            TasteProfilingUI tasteProfilingUI = new TasteProfilingUI();
+            TasteProfiling tasteProfilingUI = new TasteProfiling();
             tasteProfilingUI.showTasteProfilingUI(textGUI);
         });
         recipeListPanel.addComponent(backButton);

@@ -4,7 +4,7 @@ import com.googlecode.lanterna.gui2.*;
 import com.googlecode.lanterna.gui2.dialogs.MessageDialog;
 import com.googlecode.lanterna.gui2.dialogs.TextInputDialogBuilder;
 
-import TasteProfiling.TasteProfilingUI;
+import TasteProfiling.TasteProfiling;
 import UserManager.UserInfo;
 
 import java.sql.*;
@@ -42,7 +42,7 @@ public class ViewProfile {
             @Override
             public void run() {
                 recipeListWindow.close();
-                TasteProfilingUI tasteProfilingUI = new TasteProfilingUI();
+                TasteProfiling tasteProfilingUI = new TasteProfiling();
                 tasteProfilingUI.showTasteProfilingUI(textGUI);
             }
         });

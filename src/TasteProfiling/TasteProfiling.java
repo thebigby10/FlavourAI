@@ -12,7 +12,7 @@ import TasteProfiling.AddRecipe.AddRecipe;
 import TasteProfiling.RateRecipe.RateRecipe;
 import TasteProfiling.ViewProfile.ViewProfile;
 
-public class TasteProfilingUI {
+public class TasteProfiling {
     public void showTasteProfilingUI(WindowBasedTextGUI textGUI) {
         // Create a window for the main menu
         Window mainMenuWindow = new BasicWindow("Taste Profile");

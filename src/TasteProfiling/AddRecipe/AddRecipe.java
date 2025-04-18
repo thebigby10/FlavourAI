@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import com.googlecode.lanterna.gui2.*;
 import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.terminal.Terminal;
-import TasteProfiling.TasteProfilingUI;
+import TasteProfiling.TasteProfiling;
 import UserManager.UserInfo;
 
 public class AddRecipe {
@@ -134,7 +134,7 @@ public class AddRecipe {
                 if (rowsInserted > 0) {
                     showSuccessPopup(textGUI);
                     recipeWindow.close();
-                    TasteProfilingUI tasteProfilingUI = new TasteProfilingUI();
+                    TasteProfiling tasteProfilingUI = new TasteProfiling();
                     tasteProfilingUI.showTasteProfilingUI(textGUI);
                 }
             } catch (SQLException e) {
@@ -151,7 +151,7 @@ public class AddRecipe {
             @Override
             public void run() {
                 recipeWindow.close();
-                TasteProfilingUI tasteProfilingUI = new TasteProfilingUI();
+                TasteProfiling tasteProfilingUI = new TasteProfiling();
                 tasteProfilingUI.showTasteProfilingUI(textGUI);
             }
         });
